@@ -10,13 +10,13 @@
 
 An input consits of 3 parts.
 The 1st line must be `solve` keyword (this specify solver mode).
-The 2nd line is the next player of the game.
+
+The 2nd line is the next player of the game, `'o'` or `'x'`.
 
 The latter after 3rd line is the 6x6 board,
 which is 6 lines and a line is 6 chars.
-The char is one of `.`, `o` or `x`.
-`.` is empty cell, 'o' is the left player cell
-and 'x' is the right player cell.
+The char is one of `'.'`, `'o'` or `'x'`.
+`'.'` is empty cell, `'o'` is the left player cell and `'x'` is the right player cell.
 
 __N.B.__
 `o` is assumed to be the first player of the game.
@@ -31,8 +31,6 @@ o
 ......
 ......
 ```
-
-which is the next player to the input
 
 ### Output
 

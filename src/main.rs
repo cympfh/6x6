@@ -295,6 +295,7 @@ fn main() {
         let mut fs = read_board(&mut sc);
         let result = put(&mut fs, next, i, j);
         if result {
+            println!("ok");
             display(&fs);
         } else {
             println!("invalid");
