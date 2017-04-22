@@ -7,6 +7,10 @@
     - put
     - check
 
+`script/cli.sh` is a toy CLI game using this `6x6`.
+
+![](script/screenshot.png)
+
 ## usage
 
 ```
