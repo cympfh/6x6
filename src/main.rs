@@ -178,19 +178,29 @@ fn majority(fs: &Vec<Vec<Cell>>) -> Cell {
 }
 
 fn end(fs: &Vec<Vec<Cell>>) -> Cell {
-    let mut k = 0;
+    let mut nb_o = 0;
+    let mut nb_x = 0;
+    let mut nb_e = 0;
     for i in 0..6 {
         for j in 0..6 {
             if fs[i][j] == O {
-                k += 1;
+                nb_o += 1
             } else if fs[i][j] == X {
-                k -= 1;
+                nb_x += 1
             } else {
-                return Empty
+                nb_e += 1
             }
         }
     }
-    if k > 0 { O } else { X }
+    if nb_o > 0 && nb_x > 0 && nb_e > 0 {
+        Empty
+    } else {
+        if nb_o > nb_x {
+            O
+        } else {
+            X
+        }
+    }
 }
 
 fn display(fs: &Vec<Vec<Cell>>) {
@@ -300,7 +310,7 @@ fn main() {
     let args: Vec<String> = env::args().collect();
     let mut sc = Scanner::new();
 
-    if args.len() == 0 {
+    if args.len() < 2 {
 
         usage();
 
