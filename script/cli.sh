@@ -3,8 +3,8 @@
 SIX=./target/release/6x6
 
 [ -d /tmp/6x6 ] || mkdir /tmp/6x6
-BD=/tmp/6x6/bd
-RESULT=/tmp/6x6/result
+BD=/tmp/6x6/$$.bd
+RESULT=/tmp/6x6/$$.result
 
 init() {
     cat <<EOM >$BD
@@ -20,9 +20,13 @@ EOM
 solve() {
     echo "CPU> I'm thinking..."
     ( echo "$ME"; cat $BD) | $SIX solve >$RESULT
-    HAND=$(tail -n 7 $RESULT | head -1)
-    echo "CPU> $HAND"
-    tail -n 6 $RESULT >$BD
+    if [ "$(cat "$RESULT")" = "pass" ]; then
+        echo "CPU> I have no choice. Pass."
+    else
+        HAND=$(tail -n 7 $RESULT | head -1)
+        echo "CPU> $HAND"
+        tail -n 6 $RESULT >$BD
+    fi
 }
 
 display() {
@@ -57,7 +61,7 @@ check() {
 
 init
 
-if [ $((RANDOM % 200)) -eq 0 ]; then
+if [ $((RANDOM % 2)) -eq 0 ]; then
     YOU=o
     ME=x
     echo "== You are o. It's your turn."
