@@ -180,19 +180,17 @@ fn majority(fs: &Vec<Vec<Cell>>) -> Cell {
 fn end(fs: &Vec<Vec<Cell>>) -> Cell {
     let mut nb_o = 0;
     let mut nb_x = 0;
-    let mut nb_e = 0;
     for i in 0..6 {
         for j in 0..6 {
             if fs[i][j] == O {
                 nb_o += 1
             } else if fs[i][j] == X {
                 nb_x += 1
-            } else {
-                nb_e += 1
             }
         }
     }
-    if nb_o > 0 && nb_x > 0 && nb_e > 0 {
+
+    if (nb_x + nb_o == 0) || (puttable(&fs, O).len() == 0 && puttable(&fs, X).len() == 0) {
         Empty
     } else {
         if nb_o > nb_x {

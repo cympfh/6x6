@@ -7,9 +7,15 @@
     - put
     - check
 
-`script/cli.sh` is a toy CLI game using this `6x6`.
+### `script/`
+
+Under `script/`, there are some pretty toy script using `6x6`.
+
+1.  `script/cli.sh`: You vs CPU game
 
 ![](script/screenshot.png)
+
+2. `script/self.sh`: CPU vs CPU game (only watching)
 
 ## usage
 
@@ -17,7 +23,7 @@
 6x6 solve < input
 ```
 
-## solve
+## `6x6` solve
 
 `solve` searchs the best choice for the game.
 
