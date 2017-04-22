@@ -1,4 +1,5 @@
 #![allow(unused_imports)]
+use std::env;
 use std::io::{ self, Write };
 use std::str::FromStr;
 use std::cmp::{ min, max };
@@ -12,7 +13,21 @@ macro_rules! trace {
         let _ = writeln!(&mut std::io::stderr(), ">>> {} = {:?}", stringify!($var), $var);
     })
 }
-macro_rules! swap { ($a:expr, $b:expr) => ({ let t = $b; $b = $a; $a = t; }) }
+
+fn usage() {
+    println!(r#"6x6
+
+Usage:
+    6x6 [COMMAND]
+
+COMMAND:
+
+    solve
+    put
+    check
+"#);
+
+}
 
 const M: usize = 6;  // the size of the fields
 const N: usize = 100; // the num of Monte Carlo
@@ -282,14 +297,21 @@ fn solve(mut fs: &mut Vec<Vec<Cell>>, next: Cell) {
 }
 
 fn main() {
+    let args: Vec<String> = env::args().collect();
     let mut sc = Scanner::new();
-    let mode: String = sc.cin();
 
-    if mode == "solve" {
+    if args.len() == 0 {
+
+        usage();
+
+    } else if args[1] == "solve" {
+
         let next = Cell::from_char(sc.get_char());
         let mut fs = read_board(&mut sc);
         solve(&mut fs, next)
-    } else {
+
+    } else if args[1] == "put" {
+
         let next = Cell::from_char(sc.get_char());
         let (i, j) = note2pos(sc.cin::<String>());
         let mut fs = read_board(&mut sc);
@@ -300,6 +322,21 @@ fn main() {
         } else {
             println!("invalid");
         }
+
+    } else if args[1] == "check" {
+
+        let fs = read_board(&mut sc);
+        let result = end(&fs);
+        if result == Empty {
+            println!("yet");
+        } else {
+            println!("end");
+            println!("{}", if result == O { 'o' } else { 'x' });
+        }
+
+    } else {
+        println!("unknown command: {}", args[1]);
+        usage();
     }
 }
 

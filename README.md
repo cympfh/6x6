@@ -2,18 +2,28 @@
 
 `6x6` is a basic tool for 6x6 reversi.
 
-## solver
+- commands:
+    - solve
+    - put
+    - check
 
-`solver` searchs the best choice for the game.
+## usage
+
+```
+6x6 solve < input
+```
+
+## solve
+
+`solve` searchs the best choice for the game.
+
+### usage
 
 ### Input
 
-An input consits of 3 parts.
-The 1st line must be `solve` keyword (this specify solver mode).
+The first line of the input is the next player of the game, `'o'` or `'x'`.
 
-The 2nd line is the next player of the game, `'o'` or `'x'`.
-
-The latter after 3rd line is the 6x6 board,
+And the latter after 2nd line is a 6x6 board,
 which is 6 lines and a line is 6 chars.
 The char is one of `'.'`, `'o'` or `'x'`.
 `'.'` is empty cell, `'o'` is the left player cell and `'x'` is the right player cell.
@@ -22,7 +32,6 @@ __N.B.__
 `o` is assumed to be the first player of the game.
 
 ```
-solve
 o
 ......
 ......
@@ -35,7 +44,7 @@ o
 ### Output
 
 The output is the best choice of the next player,
-and the game after the choice.
+and the board after put with the best choice.
 
 ```
 b4
@@ -60,12 +69,15 @@ a6 b6 c6 d6 e6 f6
 
 ## put
 
-`put` just puts a stone.
+`put` just displays the 6x6 board after put.
 
 ### Input
 
+The first line is one of `'o'` or `'x'`.
+The 2nd is the position,
+and the latter is 6x6 board before put.
+
 ```
-put
 o
 b4
 ......
@@ -77,6 +89,8 @@ b4
 ```
 
 ### Output
+
+If the position is valid, output is like the following.
 
 ```
 ok
@@ -91,7 +105,6 @@ ok
 ### Input
 
 ```
-put
 o
 a4
 ......
@@ -104,7 +117,50 @@ a4
 
 ### Output
 
+If invalid,
+
 ```
 invalid
 ```
+
+## check
+
+`check` just checks whether the game is end,
+and which player won when it's end.
+
+### Input
+
+```
+......
+......
+..ox..
+..xo..
+......
+......
+```
+
+### Output
+
+```
+yet
+```
+
+### Input
+
+```
+oooooo
+oooooo
+ooxxoo
+ooxxoo
+oooooo
+oooooo
+```
+
+### Output
+
+```
+end
+o
+```
+
 
