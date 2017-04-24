@@ -20,8 +20,24 @@ Under `script/`, there are some pretty toy script using `6x6`.
 ## usage
 
 ```
-6x6 solve < input
+6x6 [command] < input
+
+e.g.
+
+6x6 solve <<EOM
+x
+......
+....o.
+...o..
+..o...
+.x....
+......
+EOM
 ```
+
+### MOST IMPORTANT FACT
+
+6x6 is the game which the 2nd move (`'x'`) can always win!!
 
 ## `6x6` solve
 
