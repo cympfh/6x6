@@ -191,13 +191,13 @@ fn end(fs: &Vec<Vec<Cell>>) -> Cell {
     }
 
     if (nb_x + nb_o == 0) || (puttable(&fs, O).len() == 0 && puttable(&fs, X).len() == 0) {
-        Empty
-    } else {
         if nb_o > nb_x {
             O
         } else {
             X
         }
+    } else {
+        Empty
     }
 }
 
