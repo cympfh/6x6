@@ -1,5 +1,7 @@
 # 6x6 reversi
 
+## 6x6
+
 `6x6` is a basic tool for 6x6 reversi.
 
 - commands:
@@ -7,7 +9,19 @@
     - put
     - check
 
-### `script/`
+### build
+
+```bash
+make build
+```
+
+### usage
+
+```
+6x6 [command] < input
+```
+
+## `script/`
 
 Under `script/`, there are some pretty toy script using `6x6`.
 
@@ -17,13 +31,17 @@ Under `script/`, there are some pretty toy script using `6x6`.
 
 2. `script/self.sh`: CPU vs CPU game (only watching)
 
-## usage
+## MOST IMPORTANT FACT
+
+6x6 is the game which the 2nd move (`'x'`) can always win!!
+
+## `6x6` solve
+
+`solve` searchs the best choice for the game.
+
+**example**:
 
 ```
-6x6 [command] < input
-
-e.g.
-
 6x6 solve <<EOM
 x
 ......
@@ -35,15 +53,20 @@ x
 EOM
 ```
 
-### MOST IMPORTANT FACT
+`6x6` prints, the best next play (for `x`) and the next state:
 
-6x6 is the game which the 2nd move (`'x'`) can always win!!
+```
+>>> (strength, pos2note(i, j)) = (100, "f1")
+f1
+.....x
+....x.
+...x..
+..x...
+.x....
+......
+```
 
-## `6x6` solve
-
-`solve` searchs the best choice for the game.
-
-### usage
+`>>>` lines are debug info.
 
 ### Input
 
