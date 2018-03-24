@@ -29,7 +29,11 @@ Under `script/`, there are some pretty toy script using `6x6`.
 
 ![](script/screenshot.png)
 
-2. `script/self.sh`: CPU vs CPU game (only watching)
+2. `script/six.sh`
+
+A script similar to `cli.sh`
+
+3. `script/self.sh`: CPU vs CPU game (only watching)
 
 ## MOST IMPORTANT FACT
 
