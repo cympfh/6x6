@@ -130,6 +130,11 @@ fn puttable(fs: &Vec<Vec<Cell>>, next: Cell) -> Vec<(usize, usize)> {
 
 fn put(fs: &mut Vec<Vec<Cell>>, next: Cell, i: usize, j: usize) -> bool {
 
+    // weak puttable check
+    if fs[i][j] != Empty {
+        return false;
+    }
+
     let mut ok = false;
 
     let dx: [i32; 8] = [-1, -1, -1, 0, 1, 1, 1, 0];
