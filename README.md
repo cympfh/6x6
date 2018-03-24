@@ -25,13 +25,19 @@ make build
 
 Under `script/`, there are some pretty toy script using `6x6`.
 
-1.  `script/cli.sh`: You vs CPU game
+1.  `script/cli.sh`
+
+A CLI script: You vs CPU game.
+This script stores the game-status and offers the UI.
 
 ![](script/screenshot.png)
 
 2. `script/six.sh`
 
-A script similar to `cli.sh`
+Another CLI script: You vs CPU game.
+This stores the status in `/tmp/` and the script-self has no status.
+
+![](script/six_screenshot.png)
 
 3. `script/self.sh`: CPU vs CPU game (only watching)
 
